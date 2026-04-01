@@ -203,7 +203,7 @@ traceable across both services from HTTP request to final processing state.
 
 ## Connected Service
 
-[zoick-incident-api](../zoick-incident-api) — Trust-Aware Incident 
+[https://github.com/Kunzoick/zoick-incident-api) — Trust-Aware Incident 
 Intelligence API (port 8080). The Trust API publishes incident creation 
 events via the Transactional Outbox Pattern. This pipeline service is 
 the consumer.
