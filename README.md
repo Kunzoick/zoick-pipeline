@@ -199,7 +199,7 @@ traceable across both services from HTTP request to final processing state.
 | [`docs/adr/ADR-003-idempotency.md`](docs/adr/ADR-003-idempotency.md) | Idempotency approach |
 | [`docs/adr/ADR-004-trust-api-integration.md`](docs/adr/ADR-004-trust-api-integration.md) | Outbox pattern rationale |
 
-for more deeper knowledge visit -> [add document](docs/Architecture Decision Document-ADD)
+for more deeper knowledge visit -> [ADD document](https://github.com/Kunzoick/zoick-pipeline/commit/89bce32bb58f6127f0ec762417d893f97458628a)
 
 ---
 
