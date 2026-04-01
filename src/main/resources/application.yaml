@@ -1,0 +1,68 @@
+spring:
+  application:
+    name: zoick-pipeline
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/zoick_pipeline?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        format_sql: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+
+server:
+  port: 8081
+
+rabbitmq:
+  exchange:
+    incident: incident.exchange
+  queue:
+    processing: incident.processing.queue
+    dlq: incident.dlq
+  routing-key:
+    incident-created: incident.created
+    dlq: incident.dlq
+
+logging:
+  level:
+    root: INFO
+    com.zoick.pipeline: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+pipeline:
+  retry-poll-interval-ms: 5000
+  simulate-failure: false
+  simulate-slow-processing-ms: 0
+  simulate-failure-on-attempt: 0
+  processing-timeout-ms: 8000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      show-details: always
