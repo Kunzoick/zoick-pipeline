@@ -199,6 +199,8 @@ traceable across both services from HTTP request to final processing state.
 | [`docs/adr/ADR-003-idempotency.md`](docs/adr/ADR-003-idempotency.md) | Idempotency approach |
 | [`docs/adr/ADR-004-trust-api-integration.md`](docs/adr/ADR-004-trust-api-integration.md) | Outbox pattern rationale |
 
+for more deeper knowledge visit -> docs/Architecture Decision Document-ADD
+
 ---
 
 ## Connected Service
